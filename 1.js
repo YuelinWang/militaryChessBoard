@@ -31,13 +31,19 @@ childa.stdin.write('INFO 1.0\n');
 // aName = aName.splice(' ')[0];
 // console.log(aName);
 
-childa.stdout.on('data', function(data) {
-    aName = data.toString();
-    console.log(aName);
-});
 
 
+async function getAName() {
+    childa.stdout.on('data', await
+        function(data) {
+            aName = data.toString();
+            console.log('stdout: ' + data);
+        });
+    // console.log(ap);
+}
 
+getAName();
+console.log(aName);
 
 
 
