@@ -1,12 +1,40 @@
 var path = require('path');
 var childa = require('child_process').spawn(path.join(__dirname, 'a'));
 var childb = require('child_process').spawn(path.join(__dirname, 'b'));
+//flag  轮到谁  0a,1b
+//aName,bName   a队伍名，b队伍名
+//aArray,bArray a布局，b布局
+var flag = 0;
+var aName, bName, aArray, bArray;
+
+
+// while (1) {
+//     childa.stdin.write('INFO 1.0\n');
+//     childa.stdout.on('data', data => aName = data);
+//     aName = aName.splice(' ')[0];
+//     childa.stdin.write('START 0 1800 31\n');
+//     childa.stdin.write('GO 0000 0 00\n');
+//     childb.stdin.write('INFO 1.0\n');
+//     childb.stdin.write('START 0 1800 31\n');
+//     childb.stdin.write('GO 0000 0 00\n');
+//     if (flag === 0) {
+//         flag++;
+//     } else {
+//         flag--;
+//     }
+// }
 
 
 
+childa.stdin.write('INFO 1.0\n');
+// childa.stdout.on('data', data => aName = data);
+// aName = aName.splice(' ')[0];
+// console.log(aName);
 
-
-
+childa.stdout.on('data', function(data) {
+    aName = data.toString();
+    console.log(aName);
+});
 
 
 
